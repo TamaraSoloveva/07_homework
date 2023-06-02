@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2023-06-01T18:35:36. -->
+<!-- Written by QtCreator 6.0.2, 2023-06-02T16:25:51. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -68,7 +68,24 @@
     <value type="bool" key="AutoTest.Framework.QtTest">false</value>
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:List_Container">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkCopy_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkErase_beg_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkErase_empty_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkErase_end_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkErase_middle_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkErase_neg_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkErase_nonExistent_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkGetByInd_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkInsert_beg_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkInsert_end_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkInsert_middle_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkInsert_neg_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:checkInsert_nonExistent_list">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/listCont_tests.cpp:correctCreation_list">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:Sequence_Container">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkCopy">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkDelete">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkErase_beg">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkErase_empty">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkErase_end">Checked</value>
@@ -81,6 +98,8 @@
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkInsert_middle">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkInsert_neg">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkInsert_nonExistent">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkMove_Constr">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:checkMove_Operator">Checked</value>
     <value type="Qt::CheckState" key="1@C:/Users/User/Documents/Study/07_homework/07_homework/gtests/seqCont_tests.cpp:correctCreation">Checked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
@@ -114,7 +133,7 @@
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt5.5152.win64_mingw81_kit</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
-   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">1</value>
+   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="QString" key="CMake.Build.Type">Debug</value>
     <value type="QString" key="CMake.Initial.Parameters">-GNinja
@@ -306,7 +325,15 @@
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Сборка</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.MakeStep</value>
      </valuemap>
-     <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
+      <valuelist type="QVariantList" key="CMakeProjectManager.MakeStep.BuildTargets">
+       <value type="QString">install</value>
+      </valuelist>
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Сборка</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.MakeStep</value>
+     </valuemap>
+     <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Развёртывание</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Развёртывание</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Deploy</value>

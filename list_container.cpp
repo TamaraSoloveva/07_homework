@@ -6,6 +6,12 @@ class List_Container_oneDir : public Base_Container<T> {
 public:
     List_Container_oneDir() : elNum(0), first_node(nullptr), tmp_node(nullptr) { }
 
+    List_Container_oneDir( List_Container_oneDir & other ) : elNum(0) {
+        for( size_t i=0; i<other.size(); ++i) {
+            this->push_back(other[i]);
+        }
+    }
+
     ~List_Container_oneDir() {
         Node *p = first_node;
         while(p) {
@@ -20,11 +26,19 @@ public:
         T data;
     };
 
-    void show() const override {
-        if (elNum == 0) {
-            std::cout << "Container is empty" << std::endl;
-            return;
+    void createCont( const int &sz ) {
+        if (sz <= 0)
+            throw std::range_error("out of range");
+        for(int ii=0; ii<sz; ++ii) {
+            push_back(static_cast<T>(ii));
         }
+
+    }
+
+    void show() const override {
+        if (elNum == 0)
+            throw std::out_of_range("out of range");
+
         Node *p = first_node;
         while (p) {
             std::cout << p->data << " ";
@@ -49,19 +63,38 @@ public:
 
 
     void erase( const size_t ind ) override {
-        Node *p = first_node;
-        size_t cntr = 0;
-        tmp_node = nullptr;
-        while ( cntr != (ind-1) ) {
-            tmp_node = p;
-            p = p->next;
-            cntr++;
+        if (elNum == 0) {
+            throw std::out_of_range("index out of range");
         }
-       tmp_node->next = p->next;
+        if ((ind >= elNum) || ( ind < 0)) {
+            throw std::out_of_range("index out of range");
+        }
+        Node *p = first_node;
+        tmp_node = nullptr;
+        if (ind == 0) {
+            tmp_node = first_node->next;
+            first_node->next = nullptr;
+            first_node = tmp_node;
+        }
+        else {
+            size_t cntr = 0;
+            while ( cntr != (ind-1) ) {
+                tmp_node = p;
+                p = p->next;
+                cntr++;
+            }
+            if (elNum == 2 )
+                first_node->next = nullptr;
+            else
+                tmp_node->next = p->next;
+        }
        elNum--;
     }
 
     void insert( const size_t ind, const T & val) override {
+        if ((ind > elNum) || ( ind < 0)) {
+            throw std::out_of_range("index out of range");
+        }
         Node *p = first_node;
         size_t cntr = 0;
         tmp_node = nullptr;
@@ -100,10 +133,10 @@ public:
 
     //оператор перемещения
     List_Container_oneDir & operator = ( List_Container_oneDir && other) noexcept {
-        if (this != &other) {
-            std::swap(*this, other);
-        }
-        //std::cout << "sdvig operetor" << std::endl;
+        first_node = other.first_node;
+        other.first_node = nullptr;
+        elNum = other.elNum;
+        other.elNum = 0;
         return *this;
 
     }

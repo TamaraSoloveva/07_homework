@@ -14,7 +14,7 @@ void run_test(  T & contName ) {
     contName.show();
     std::cout << "Size: " << contName.size() << std::endl;
     contName.erase(0);
-     contName.show();
+    contName.show();
     contName.erase(4);
     contName.erase(5);
     contName.show();
@@ -35,21 +35,28 @@ int main() {
     std::cout << "Sequence container" << std::endl;
     Sequence_Container <int> con1;
     run_test(con1);
-     Sequence_Container <int> moveCont3 = std::move(con1);
-     std::cout << "\n\nMove semantic for Sequence_Container" << std::endl;
-     for (size_t i=0; i < moveCont3.size(); ++i) {
-         std::cout << moveCont3[i] << " ";
-     }
 
-//==================================================================
+//  Sequence_Container <int> moveCont3 = std::move(con1);
+    Sequence_Container <int> moveCont3;
+    moveCont3 = std::move(con1);
+    std::cout << "\n\nMove semantic for Sequence_Container " << std::endl;
+    for (size_t i=0; i < moveCont3.size(); ++i) {
+        std::cout << moveCont3[i] << " ";
+    }
+
+
     std::cout << "\n\nList container (one dir)" << std::endl;
     List_Container_oneDir <int> con3;
     run_test(con3);
-    std::cout << "\n\nMove semantic for List_Container_oneDir" << std::endl;
-    List_Container_oneDir <int> moveCont = std::move(con3);
-    for (size_t i=0; i < moveCont.size(); ++i) {
-        std::cout << moveCont[i] << " ";
+    List_Container_oneDir <int> con2 = con3;
+    for (size_t i=0; i<con3.size(); ++i) {
+         std::cout << con3[i] << " " <<  con2[i] << std::endl;
     }
+    std::cout << "\n\nMove semantic for List_Container_oneDir" << std::endl;
+//    List_Container_oneDir <int> moveCont = std::move(con3);
+//    for (size_t i=0; i < moveCont.size(); ++i) {
+//        std::cout << moveCont[i] << " ";
+//    }
 
     return 0;
 }

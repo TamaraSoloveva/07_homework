@@ -5,12 +5,14 @@ const size_t reserved_mem = 4;
 template <typename T>
 class Sequence_Container : public Base_Container <T>{
 public:
-    Sequence_Container() : memSz(0), elNum(0)  {}
+    Sequence_Container( ) : memSz(0), elNum(0)  { /*std::cout << "constr" << std::endl;*/ }
 
     //конструктор копирования
     Sequence_Container( const  Sequence_Container &cnt) {
-        elNum = cnt.elNum;
-        for (size_t i = 0; i< cnt.elNum; ++i) {
+        memSz = cnt.size();
+        elNum = memSz;
+        mem = new T [memSz];
+        for (size_t i = 0; i < elNum; ++i) {
             mem[i] = cnt.mem[i];
         }
     }
@@ -102,14 +104,18 @@ public:
 
     //оператор перемещения
     Sequence_Container & operator = ( Sequence_Container && other) noexcept {
-        if (this != &other) {
-            std::swap(*this, other);
+       if (this != &other) {
+           mem = other.mem;
+           other.mem = nullptr;
+           memSz = other.memSz;
+           other.memSz = 0;
+           elNum = other.elNum;
+           other.elNum = 0;
         }
         return *this;
-
     }
 
-    //конструктор сдвига
+    //конструктор перемещения
     Sequence_Container ( Sequence_Container && other ) noexcept {
         mem = other.mem;
         other.mem = nullptr;

@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
-#include "sequence_container.cpp"
+#include "list_container.cpp"
 
 
-TEST(Sequence_Container, correctCreation) {
-    Sequence_Container <int> con1;
+TEST(List_Container, correctCreation_list) {
+    List_Container_oneDir <int> con1;
     //проверяем, что контейнер в начале имеет нулевой размер
     ASSERT_EQ( con1.size(), 0) ;
     //Исключение, если размер нулевой
@@ -17,30 +17,30 @@ TEST(Sequence_Container, correctCreation) {
 }
 
 
-TEST(Sequence_Container, checkGetByInd) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkGetByInd_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     for (int i=0; i<10; ++i) {
          ASSERT_EQ( con1[i], i) ;
     }
 }
 
-TEST(Sequence_Container, checkInsert_neg) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkInsert_neg_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //добавить в отрицательный индекс
     ASSERT_ANY_THROW( con1.insert(-1, 1));
 }
 
-TEST(Sequence_Container, checkInsert_nonExistent) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkInsert_nonExistent_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //добавить в несуществующий индекс
     ASSERT_ANY_THROW( con1.insert(10000, 1));
 }
 
-TEST(Sequence_Container, checkInsert_middle) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkInsert_middle_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //добавить в существующий индекс
     con1.insert(5, 0xA);
@@ -51,8 +51,8 @@ TEST(Sequence_Container, checkInsert_middle) {
 }
 
 
-TEST(Sequence_Container, checkInsert_beg) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkInsert_beg_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //добавить в начало
     con1.insert(0, 0xB);
@@ -62,8 +62,8 @@ TEST(Sequence_Container, checkInsert_beg) {
     ASSERT_EQ( con1.size(), 11) ;
 }
 
-TEST(Sequence_Container, checkInsert_end) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkInsert_end_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //добавить в конец
     con1.insert(10, 0xC);
@@ -73,22 +73,22 @@ TEST(Sequence_Container, checkInsert_end) {
     ASSERT_EQ( con1.size(), 11);
 }
 
-TEST(Sequence_Container, checkErase_neg) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkErase_neg_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //удалить отрицательный индекс
     ASSERT_ANY_THROW( con1.erase(-1));
 }
 
-TEST(Sequence_Container, checkErase_nonExistent) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkErase_nonExistent_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //удалить несуществующий индекс
     ASSERT_ANY_THROW( con1.erase(25));
 }
 
-TEST(Sequence_Container, checkErase_beg) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkErase_beg_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //удалить нулевой индекс
     con1.erase(0);
@@ -98,8 +98,8 @@ TEST(Sequence_Container, checkErase_beg) {
     ASSERT_EQ( con1.size(), 9) ;
 }
 
-TEST(Sequence_Container, checkErase_middle) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkErase_middle_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //удалить индекс 7
     con1.erase(7);
@@ -109,8 +109,8 @@ TEST(Sequence_Container, checkErase_middle) {
     ASSERT_EQ( con1.size(), 9) ;
 }
 
-TEST(Sequence_Container, checkErase_end) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkErase_end_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(10);
     //удалить последний индекс
     con1.erase(9);
@@ -119,8 +119,8 @@ TEST(Sequence_Container, checkErase_end) {
 }
 
 
-TEST(Sequence_Container, checkErase_empty) {
-    Sequence_Container <int> con1;
+TEST(List_Container, checkErase_empty_list) {
+    List_Container_oneDir <int> con1;
     con1.createCont(2);
     con1.erase(1);
     ASSERT_EQ( con1.size(), 1) ;
@@ -129,20 +129,20 @@ TEST(Sequence_Container, checkErase_empty) {
     ASSERT_ANY_THROW( con1.erase(0));
 }
 
-TEST(Sequence_Container, checkCopy) {
-     Sequence_Container <int> con1;
+TEST(List_Container, checkCopy_list) {
+     List_Container_oneDir <int> con1;
      con1.createCont(5);
-     Sequence_Container con2 = con1;
+     List_Container_oneDir<int> con2 = con1;
      ASSERT_EQ( con1.size(), con2.size()) ;
      for (size_t i=0; i<con1.size(); ++i) {
-         ASSERT_EQ( con1[i], con2[i]) ;
+         ASSERT_EQ( con2[i], i) ;
      }
 }
 
-TEST(Sequence_Container, checkMove_Constr) {
-     Sequence_Container <int> con1;
+TEST(List_Container, checkMove_Constr_list) {
+     List_Container_oneDir <int> con1;
      con1.createCont(5);
-     Sequence_Container <int> moveCon = std::move(con1);
+     List_Container_oneDir <int> moveCon = std::move(con1);
      ASSERT_EQ( moveCon.size(), 5) ;
      for (size_t i=0; i<moveCon.size(); ++i) {
          ASSERT_EQ( moveCon[i], i) ;
@@ -150,10 +150,10 @@ TEST(Sequence_Container, checkMove_Constr) {
      ASSERT_EQ( con1.size(), 0) ;
 }
 
-TEST(Sequence_Container, checkMove_Operator) {
-     Sequence_Container <int> con1;
+TEST(List_Container, checkMove_Operator_list) {
+     List_Container_oneDir <int> con1;
      con1.createCont(5);
-     Sequence_Container <int> moveCon;
+     List_Container_oneDir <int> moveCon;
      moveCon = std::move(con1);
      ASSERT_EQ( moveCon.size(), 5) ;
      for (size_t i=0; i<moveCon.size(); ++i) {
@@ -162,14 +162,14 @@ TEST(Sequence_Container, checkMove_Operator) {
      ASSERT_EQ( con1.size(), 0) ;
 }
 
-TEST(Sequence_Container, checkDelete) {
-     Sequence_Container <int> con1;
-     con1.createCont(5);
-     Sequence_Container <int> moveCon;
-     moveCon = std::move(con1);
-     ASSERT_EQ( moveCon.size(), 5) ;
-     for (size_t i=0; i<moveCon.size(); ++i) {
-         ASSERT_EQ( moveCon[i], i) ;
-     }
-     ASSERT_EQ( con1.size(), 0) ;
-}
+//TEST(Sequence_Container, checkDelete) {
+//     Sequence_Container <int> con1;
+//     con1.createCont(5);
+//     Sequence_Container <int> moveCon;
+//     moveCon = std::move(con1);
+//     ASSERT_EQ( moveCon.size(), 5) ;
+//     for (size_t i=0; i<moveCon.size(); ++i) {
+//         ASSERT_EQ( moveCon[i], i) ;
+//     }
+//     ASSERT_EQ( con1.size(), 0) ;
+//}
