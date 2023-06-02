@@ -6,6 +6,15 @@ template <typename T>
 class Sequence_Container : public Base_Container <T>{
 public:
     Sequence_Container() : memSz(0), elNum(0)  {}
+
+    //конструктор копирования
+    Sequence_Container( const  Sequence_Container &cnt) {
+        elNum = cnt.elNum;
+        for (size_t i = 0; i< cnt.elNum; ++i) {
+            mem[i] = cnt.mem[i];
+        }
+    }
+
     ~Sequence_Container() { delete []mem; }
 
     void show() const override {
@@ -40,17 +49,20 @@ public:
 
     void erase( const size_t ind ) override {
         if ( elNum == 0 ) {
-            std::cout << "Container is empty" << std::endl;
-            return;
+            throw std::out_of_range("out of range");
         }
         if ((ind >= elNum) || ( ind < 0)) {
-            std::cout << "Error - Bad index" << std::endl;
-            return;
+            throw std::out_of_range("out of range");
         }
         size_t i=0, j=0;
          T *newMem = new T [memSz];
          for (i = 0, j=0; i < elNum; ++i, ++j) {
-            if ( j == (ind-1) ) {
+            if (ind != 0) {
+                if ( j == (ind-1) ) {
+                    ++i;
+                }
+            }
+            else if (i==0){
                 ++i;
             }
             newMem[j] = mem[i];
@@ -62,8 +74,7 @@ public:
 
     void insert( const size_t ind, const T & val ) override {
         if ((ind >= memSz) || ( ind < 0)) {
-            std::cout << "Error - Bad index" << std::endl;
-            return;
+            throw std::out_of_range("index out of range");
         }
         size_t i=0, j=0;
         elNum++;
@@ -106,6 +117,15 @@ public:
         other.memSz = 0;
         elNum = other.elNum;
         other.elNum = 0;
+    }
+
+    void createCont( const int &sz ) {
+        if (sz <= 0)
+            throw std::range_error("out of range");
+        for(int ii=0; ii<sz; ++ii) {
+            this->push_back(static_cast<T>(ii));
+        }
+
     }
 
 private:

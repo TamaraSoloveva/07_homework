@@ -4,12 +4,9 @@ template <typename T>
 
 class List_Container_oneDir : public Base_Container<T> {
 public:
-    List_Container_oneDir() : elNum(0), first_node(nullptr), tmp_node(nullptr) {
-        std::cout << "constr" << std::endl;
-    }
+    List_Container_oneDir() : elNum(0), first_node(nullptr), tmp_node(nullptr) { }
 
     ~List_Container_oneDir() {
-        std::cout << "destr" << std::endl;
         Node *p = first_node;
         while(p) {
             tmp_node = p->next;
