@@ -6,7 +6,7 @@
 template <typename TYPE>
 class Base_Container {
 public:
-    virtual ~Base_Container() {}
+    virtual ~Base_Container() = default;
     virtual void show() const = 0;
     virtual void push_back( const TYPE & val ) = 0;
     virtual void erase( const size_t ind ) = 0;

@@ -35,8 +35,6 @@ int main() {
     std::cout << "Sequence container" << std::endl;
     Sequence_Container <int> con1;
     run_test(con1);
-
-//  Sequence_Container <int> moveCont3 = std::move(con1);
     Sequence_Container <int> moveCont3;
     moveCont3 = std::move(con1);
     std::cout << "\n\nMove semantic for Sequence_Container " << std::endl;
@@ -48,16 +46,11 @@ int main() {
     std::cout << "\n\nList container (one dir)" << std::endl;
     List_Container_oneDir <int> con3;
     run_test(con3);
-    List_Container_oneDir <int> con2 = con3;
-    for (size_t i=0; i<con3.size(); ++i) {
-         std::cout << con3[i] << " " <<  con2[i] << std::endl;
-    }
     std::cout << "\n\nMove semantic for List_Container_oneDir" << std::endl;
-//    List_Container_oneDir <int> moveCont = std::move(con3);
-//    for (size_t i=0; i < moveCont.size(); ++i) {
-//        std::cout << moveCont[i] << " ";
-//    }
-
+    List_Container_oneDir <int> moveCont = std::move(con3);
+    for (size_t i=0; i < moveCont.size(); ++i) {
+        std::cout << moveCont[i] << " ";
+    }
     return 0;
 }
 
