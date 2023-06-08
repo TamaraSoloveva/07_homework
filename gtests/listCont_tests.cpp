@@ -162,14 +162,3 @@ TEST(List_Container, checkMove_Operator_list) {
      ASSERT_EQ( con1.size(), 0) ;
 }
 
-//TEST(Sequence_Container, checkDelete) {
-//     Sequence_Container <int> con1;
-//     con1.createCont(5);
-//     Sequence_Container <int> moveCon;
-//     moveCon = std::move(con1);
-//     ASSERT_EQ( moveCon.size(), 5) ;
-//     for (size_t i=0; i<moveCon.size(); ++i) {
-//         ASSERT_EQ( moveCon[i], i) ;
-//     }
-//     ASSERT_EQ( con1.size(), 0) ;
-//}
